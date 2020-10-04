@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlConditions = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,12 +60,12 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.titleBar1 = new NicksAutoClicker.TitleBar();
             this.gutter3 = new NicksAutoClicker.Gutter();
             this.gutter2 = new NicksAutoClicker.Gutter();
             this.gutter4 = new NicksAutoClicker.Gutter();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -171,60 +172,77 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer4.Panel1.Controls.Add(this.button2);
+            this.splitContainer4.Panel1.Controls.Add(this.button1);
+            this.splitContainer4.Panel1.Controls.Add(this.button7);
             // 
             // splitContainer4.Panel2
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.button2);
-            this.splitContainer4.Panel2.Controls.Add(this.button1);
+            this.splitContainer4.Panel2.Controls.Add(this.listBox1);
             this.splitContainer4.Size = new System.Drawing.Size(259, 246);
-            this.splitContainer4.SplitterDistance = 204;
+            this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackColor = System.Drawing.Color.Crimson;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(188, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(71, 25);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "CLEAR";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(71, 25);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "LOAD";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(71, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 25);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "EXPORT";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox1
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(259, 204);
-            this.listBox1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackColor = System.Drawing.Color.Crimson;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(124, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 38);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.Coral;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 38);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Disable";
-            this.button1.UseVisualStyleBackColor = false;
+            this.listBox1.Size = new System.Drawing.Size(259, 217);
+            this.listBox1.TabIndex = 10;
             // 
             // splitContainer5
             // 
@@ -235,7 +253,10 @@
             // 
             // splitContainer5.Panel1
             // 
+            this.splitContainer5.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.splitContainer5.Panel1.Controls.Add(this.button4);
             this.splitContainer5.Panel1.Controls.Add(this.label1);
+            this.splitContainer5.Panel1.Padding = new System.Windows.Forms.Padding(5);
             // 
             // splitContainer5.Panel2
             // 
@@ -251,21 +272,40 @@
             this.splitContainer5.SplitterWidth = 8;
             this.splitContainer5.TabIndex = 0;
             // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button4.BackColor = System.Drawing.Color.Green;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(408, 5);
+            this.button4.MinimumSize = new System.Drawing.Size(100, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 32);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "SAVE";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(513, 42);
+            this.label1.Padding = new System.Windows.Forms.Padding(3);
+            this.label1.Size = new System.Drawing.Size(503, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add new clicker";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlConditions
             // 
+            this.pnlConditions.AutoSize = true;
             this.pnlConditions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.pnlConditions.Controls.Add(this.panel4);
             this.pnlConditions.Controls.Add(this.gutter2);
@@ -273,7 +313,7 @@
             this.pnlConditions.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlConditions.Location = new System.Drawing.Point(0, 42);
             this.pnlConditions.Name = "pnlConditions";
-            this.pnlConditions.Size = new System.Drawing.Size(496, 561);
+            this.pnlConditions.Size = new System.Drawing.Size(513, 82);
             this.pnlConditions.TabIndex = 8;
             // 
             // panel4
@@ -284,25 +324,25 @@
             this.panel4.Location = new System.Drawing.Point(0, 46);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.panel4.Size = new System.Drawing.Size(496, 36);
+            this.panel4.Size = new System.Drawing.Size(513, 36);
             this.panel4.TabIndex = 15;
             // 
             // button5
             // 
             this.button5.AutoSize = true;
             this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button5.BackColor = System.Drawing.Color.Green;
+            this.button5.BackColor = System.Drawing.Color.Teal;
             this.button5.Dock = System.Windows.Forms.DockStyle.Right;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(400, 5);
+            this.button5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(408, 5);
             this.button5.MaximumSize = new System.Drawing.Size(91, 26);
-            this.button5.MinimumSize = new System.Drawing.Size(91, 26);
+            this.button5.MinimumSize = new System.Drawing.Size(100, 0);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 26);
+            this.button5.Size = new System.Drawing.Size(100, 26);
             this.button5.TabIndex = 16;
-            this.button5.Text = "Add new";
+            this.button5.Text = "ADD NEW";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
@@ -310,11 +350,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(5, 5);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(5);
-            this.label7.Size = new System.Drawing.Size(147, 30);
+            this.label7.Size = new System.Drawing.Size(122, 26);
             this.label7.TabIndex = 15;
             this.label7.Text = "Trigger Conditions";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,7 +368,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(496, 38);
+            this.panel3.Size = new System.Drawing.Size(513, 38);
             this.panel3.TabIndex = 13;
             // 
             // comboActionCondition
@@ -336,17 +376,15 @@
             this.comboActionCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.comboActionCondition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboActionCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboActionCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboActionCondition.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboActionCondition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.comboActionCondition.FormattingEnabled = true;
             this.comboActionCondition.Items.AddRange(new object[] {
-            "Toggle When All Conditions are Met",
-            "Toggle When Any Condition is Met",
-            "Active While All Conditions Met",
-            "Active While Any Condition is Met"});
-            this.comboActionCondition.Location = new System.Drawing.Point(228, 5);
+            "Toggle When Conditions are Met",
+            "Active While Condition is Met"});
+            this.comboActionCondition.Location = new System.Drawing.Point(219, 5);
             this.comboActionCondition.Name = "comboActionCondition";
-            this.comboActionCondition.Size = new System.Drawing.Size(263, 28);
+            this.comboActionCondition.Size = new System.Drawing.Size(289, 24);
             this.comboActionCondition.TabIndex = 15;
             this.comboActionCondition.Text = "Select";
             // 
@@ -355,7 +393,7 @@
             this.comboAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.comboAction.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboAction.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.comboAction.FormattingEnabled = true;
             this.comboAction.Items.AddRange(new object[] {
@@ -364,10 +402,10 @@
             "Middle Click",
             "Scroll Up",
             "Scroll Down"});
-            this.comboAction.Location = new System.Drawing.Point(69, 5);
+            this.comboAction.Location = new System.Drawing.Point(60, 5);
             this.comboAction.MinimumSize = new System.Drawing.Size(100, 0);
             this.comboAction.Name = "comboAction";
-            this.comboAction.Size = new System.Drawing.Size(159, 28);
+            this.comboAction.Size = new System.Drawing.Size(159, 24);
             this.comboAction.TabIndex = 12;
             this.comboAction.Text = "Select";
             // 
@@ -375,11 +413,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(5, 5);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(5);
-            this.label8.Size = new System.Drawing.Size(64, 30);
+            this.label8.Size = new System.Drawing.Size(55, 26);
             this.label8.TabIndex = 14;
             this.label8.Text = "Action";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -391,7 +429,7 @@
             this.pnlActions.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlActions.Location = new System.Drawing.Point(0, 34);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(496, 0);
+            this.pnlActions.Size = new System.Drawing.Size(513, 0);
             this.pnlActions.TabIndex = 2;
             // 
             // panel2
@@ -403,7 +441,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel2.Size = new System.Drawing.Size(496, 34);
+            this.panel2.Size = new System.Drawing.Size(513, 34);
             this.panel2.TabIndex = 1;
             // 
             // splitContainer6
@@ -423,8 +461,8 @@
             this.splitContainer6.Panel2.Controls.Add(this.numericUpDown2);
             this.splitContainer6.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer6.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer6.Size = new System.Drawing.Size(496, 36);
-            this.splitContainer6.SplitterDistance = 131;
+            this.splitContainer6.Size = new System.Drawing.Size(513, 36);
+            this.splitContainer6.SplitterDistance = 135;
             this.splitContainer6.TabIndex = 10;
             this.splitContainer6.Visible = false;
             // 
@@ -486,6 +524,7 @@
             // splitContainer7
             // 
             this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitContainer7.IsSplitterFixed = true;
             this.splitContainer7.Location = new System.Drawing.Point(0, 0);
             this.splitContainer7.Name = "splitContainer7";
             // 
@@ -494,6 +533,7 @@
             this.splitContainer7.Panel1.Controls.Add(this.label2);
             this.splitContainer7.Panel1.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer7.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer7.Panel1MinSize = 140;
             // 
             // splitContainer7.Panel2
             // 
@@ -503,19 +543,20 @@
             this.splitContainer7.Panel2.Controls.Add(this.numericUpDown1);
             this.splitContainer7.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer7.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer7.Size = new System.Drawing.Size(496, 37);
-            this.splitContainer7.SplitterDistance = 134;
+            this.splitContainer7.Size = new System.Drawing.Size(513, 37);
+            this.splitContainer7.SplitterDistance = 140;
+            this.splitContainer7.SplitterWidth = 1;
             this.splitContainer7.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(5, 5);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(2, 5, 5, 5);
-            this.label2.Size = new System.Drawing.Size(140, 30);
+            this.label2.Size = new System.Drawing.Size(119, 26);
             this.label2.TabIndex = 6;
             this.label2.Text = "Clicks per second";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -524,31 +565,30 @@
             // 
             this.button3.AutoSize = true;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackColor = System.Drawing.Color.Teal;
+            this.button3.BackColor = System.Drawing.Color.SteelBlue;
             this.button3.Dock = System.Windows.Forms.DockStyle.Right;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(262, 5);
+            this.button3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(267, 5);
             this.button3.MaximumSize = new System.Drawing.Size(91, 26);
-            this.button3.MinimumSize = new System.Drawing.Size(91, 26);
+            this.button3.MinimumSize = new System.Drawing.Size(100, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 26);
+            this.button3.Size = new System.Drawing.Size(100, 26);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Switch to MS";
+            this.button3.Text = "SWITCH TO MS";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label3.Location = new System.Drawing.Point(107, 5);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(153, 23);
+            this.label3.Size = new System.Drawing.Size(153, 27);
             this.label3.TabIndex = 5;
             this.label3.Text = "Higher number = Less Stable\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -559,9 +599,10 @@
             this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDown1.DecimalPlaces = 2;
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.numericUpDown1.Location = new System.Drawing.Point(5, 5);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -573,7 +614,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(102, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(102, 18);
             this.numericUpDown1.TabIndex = 6;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -588,13 +629,13 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel1.Size = new System.Drawing.Size(496, 0);
+            this.panel1.Size = new System.Drawing.Size(513, 0);
             this.panel1.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
@@ -617,9 +658,9 @@
             this.gutter3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gutter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.gutter3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gutter3.Location = new System.Drawing.Point(0, 603);
+            this.gutter3.Location = new System.Drawing.Point(0, 124);
             this.gutter3.Name = "gutter3";
-            this.gutter3.Size = new System.Drawing.Size(496, 4);
+            this.gutter3.Size = new System.Drawing.Size(513, 4);
             this.gutter3.TabIndex = 10;
             // 
             // gutter2
@@ -630,7 +671,7 @@
             this.gutter2.Location = new System.Drawing.Point(0, 38);
             this.gutter2.MinimumSize = new System.Drawing.Size(0, 8);
             this.gutter2.Name = "gutter2";
-            this.gutter2.Size = new System.Drawing.Size(496, 8);
+            this.gutter2.Size = new System.Drawing.Size(513, 8);
             this.gutter2.TabIndex = 14;
             // 
             // gutter4
@@ -641,8 +682,13 @@
             this.gutter4.Location = new System.Drawing.Point(0, 34);
             this.gutter4.MinimumSize = new System.Drawing.Size(0, 8);
             this.gutter4.Name = "gutter4";
-            this.gutter4.Size = new System.Drawing.Size(496, 8);
+            this.gutter4.Size = new System.Drawing.Size(513, 8);
             this.gutter4.TabIndex = 9;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "clickerExport";
+            this.openFileDialog1.Title = "Choose your clicker configurations file";
             // 
             // MainForm
             // 
@@ -669,10 +715,10 @@
             this.splitContainer3.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel1.PerformLayout();
             this.splitContainer5.Panel2.ResumeLayout(false);
             this.splitContainer5.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
@@ -704,20 +750,27 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private TitleBar titleBar1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private TitleBar titleBar1;
-        private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private Gutter gutter3;
         private System.Windows.Forms.Panel pnlConditions;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label7;
+        private Gutter gutter2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox comboActionCondition;
+        private System.Windows.Forms.ComboBox comboAction;
+        private System.Windows.Forms.Label label8;
         private Gutter gutter4;
         private System.Windows.Forms.Panel pnlActions;
         private System.Windows.Forms.Panel panel2;
@@ -731,14 +784,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Panel panel1;
-        private Gutter gutter2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboActionCondition;
-        private System.Windows.Forms.ComboBox comboAction;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
