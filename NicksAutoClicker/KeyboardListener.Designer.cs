@@ -54,7 +54,6 @@
             this.Controls.Add(this.label1);
             this.Name = "KeyboardListener";
             this.Size = new System.Drawing.Size(208, 26);
-            this.Load += new System.EventHandler(this.KeyboardListener_Load);
             this.Enter += new System.EventHandler(this.KeyboardListener_Enter);
             this.Leave += new System.EventHandler(this.KeyboardListener_Leave);
             this.ResumeLayout(false);

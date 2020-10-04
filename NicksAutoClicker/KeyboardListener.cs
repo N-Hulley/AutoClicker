@@ -20,13 +20,15 @@ namespace NicksAutoClicker
         public KeyboardListener()
         {
             InitializeComponent();
-
-        }
-
-        private void KeyboardListener_Load(object sender, EventArgs e)
-        {
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.KeyboardPressed += keypressed;
+            this.HandleDestroyed += KeyboardListener_Destroy;
+        }
+
+        private void KeyboardListener_Destroy(object sender, EventArgs e)
+        {
+            _globalKeyboardHook?.Dispose();
+
         }
 
         bool listening = false;
@@ -46,10 +48,6 @@ namespace NicksAutoClicker
             }
         }
 
-        public void Dispose()
-        {
-            _globalKeyboardHook?.Dispose();
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

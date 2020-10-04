@@ -42,7 +42,7 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(8, 8);
+            this.lblTitle.Location = new System.Drawing.Point(5, 5);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(5);
             this.lblTitle.Size = new System.Drawing.Size(52, 26);
@@ -58,9 +58,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(453, 8);
+            this.button1.Location = new System.Drawing.Point(456, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
+            this.button1.Size = new System.Drawing.Size(56, 24);
             this.button1.TabIndex = 17;
             this.button1.Text = "DELETE";
             this.button1.UseVisualStyleBackColor = false;
@@ -77,7 +77,7 @@
             this.comboIndicator.Items.AddRange(new object[] {
             "Key Is Down",
             "Mouse Button Down"});
-            this.comboIndicator.Location = new System.Drawing.Point(60, 8);
+            this.comboIndicator.Location = new System.Drawing.Point(57, 5);
             this.comboIndicator.Name = "comboIndicator";
             this.comboIndicator.Size = new System.Drawing.Size(175, 24);
             this.comboIndicator.TabIndex = 15;
@@ -95,8 +95,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Condition";
-            this.Padding = new System.Windows.Forms.Padding(8);
-            this.Size = new System.Drawing.Size(517, 39);
+            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Size = new System.Drawing.Size(517, 34);
             this.Load += new System.EventHandler(this.Condition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
