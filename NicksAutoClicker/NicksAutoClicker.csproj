@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddClicker.Designer.cs">
+      <DependentUpon>AddClicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="CatchHotkeySet.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="TitleBar.Designer.cs">
       <DependentUpon>TitleBar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddClicker.resx">
+      <DependentUpon>AddClicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CatchHotkeySet.resx">
       <DependentUpon>CatchHotkeySet.cs</DependentUpon>
     </EmbeddedResource>

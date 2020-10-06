@@ -13,7 +13,6 @@ namespace NicksAutoClicker
 {
     public partial class MainForm : Form
     {
-        bool AddingClicker = true;
 
 
         const int thinWidth = 290;
@@ -21,35 +20,24 @@ namespace NicksAutoClicker
 
         float currentWidth;
         float targetWidth;
-        List<Condition> Conditions = new List<Condition>();
+
+        public Control SideBarControl;
+
         public MainForm()
         {
             InitializeComponent();
-            comboAction.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            
             splitContainer1.SplitterWidth =1;
-            splitContainer5.SplitterWidth = 8;
 
             currentWidth = Width;
             targetWidth = Width;
 
-            ToggleSideBar();
+            ToggleSideBar(true, false);
 
             if (ClickerManager.Clickers.Count <= 0)
             {
             }
 
-        }
-        public void UpdateConditionTitles()
-        {
-            if (Conditions.Count <= 0) return;
-
-            Conditions[0].lblTitle.Text = "When";
-
-            for (int i = 1; i < Conditions.Count; i++)
-            {
-                Conditions[i].lblTitle.Text = "And";
-            }
         }
         private void button7_Click(object sender, EventArgs e)
         {
@@ -62,61 +50,41 @@ namespace NicksAutoClicker
             saveFileDialog1.ShowDialog();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        bool SideBarVisible = false;
+        void ToggleSideBar(bool instant = false, bool? visible = null)
         {
-            Condition con = new Condition(Conditions);
-            con.Dock = DockStyle.Top;
-            con.Height = 36;
-            pnlConditions.Controls.Add(con);
-            con.BringToFront();
-
-            UpdateConditionTitles();
-
-        }
-        void ToggleSideBar(bool instant = false, bool? enable = null)
-        {
-            if (enable != null)
+            if (visible != null)
             {
-                AddingClicker = (bool)enable;
+                SideBarVisible = (bool)visible;
             } else
-            {            AddingClicker = !AddingClicker;
-
+            {
+                SideBarVisible = !SideBarVisible;
             }
 
-            if (AddingClicker)
+            if (SideBarVisible)
             {
-                button10.Text = "ADD NEW";
-                button10.BackColor = Color.MediumSeaGreen;
-
-
-                //pnlSideBar = true;
-                targetWidth = thinWidth;
+                targetWidth = wideWidth;
             }
             else
             {
-                button10.Text = "CANCEL";
-                button10.BackColor = Color.IndianRed;
-
-                targetWidth = wideWidth;
-                //pnlSideBar = false;
-
+                targetWidth = thinWidth;
             }
-
             if (instant)
             {
                 Width = (int)targetWidth;
                 currentWidth = Width;
             } else
             {
-                ActiveAnimations.Add(ActiveAnimation.WidthIncrease);
+                ActiveAnimations.Add(ActiveAnimation.SideBarToggle);
                 animation.Start();
             }
-
         }
         enum ActiveAnimation
         {
-            WidthIncrease
+            SideBarToggle
         }
+        
+
         IList<ActiveAnimation> ActiveAnimations = new List<ActiveAnimation>();
         private void animation_Tick(object sender, EventArgs e)
         {
@@ -130,7 +98,7 @@ namespace NicksAutoClicker
                 {
                     switch (ActiveAnimations[i])
                     {
-                        case ActiveAnimation.WidthIncrease:
+                        case ActiveAnimation.SideBarToggle:
                             if (Math.Round(currentWidth) != Math.Round(targetWidth))
                             {
                                 currentWidth = Lerp(currentWidth, targetWidth, (1f / (float)animation.Interval) * 3);
@@ -139,7 +107,6 @@ namespace NicksAutoClicker
                             }else
                             {
                                 ActiveAnimations.RemoveAt(i);
-
                             }
                             break;
                     }
@@ -156,8 +123,24 @@ namespace NicksAutoClicker
 
         private void button10_Click_1(object sender, EventArgs e)
         {
+            if (pnlSideBar.GetType().Equals(typeof(AddClicker)))
+            {
+                button10.Text = "ADD NEW";
+                button10.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                button10.Text = "CANCEL";
+                button10.BackColor = Color.IndianRed;
+            }
+            AddClicker clickerControl = new AddClicker();
+
+            SideBarControl = clickerControl;
+            pnlSideBar.Controls.Clear();
+            pnlSideBar.Controls.Add(clickerControl);
             ToggleSideBar();
 
         }
+
     }
 }

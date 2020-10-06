@@ -59,7 +59,7 @@ namespace NicksAutoClicker
         private void button1_Click(object sender, EventArgs e)
         {
             Conditions.Remove(this);
-            ((MainForm)this.FindForm()).UpdateConditionTitles();
+            ((AddClicker)((MainForm)this.FindForm()).SideBarControl).UpdateConditionTitles();
 
             this.Parent.Controls.Remove(this);
         }
