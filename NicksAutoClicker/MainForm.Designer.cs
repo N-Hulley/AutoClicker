@@ -223,7 +223,6 @@
             // animation
             // 
             this.animation.Interval = 17;
-            this.animation.Tick += new System.EventHandler(this.animation_Tick);
             // 
             // MainForm
             // 

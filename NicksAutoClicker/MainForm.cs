@@ -18,15 +18,14 @@ namespace NicksAutoClicker
         const int thinWidth = 290;
         const int wideWidth = 800;
 
-        float currentWidth;
-        float targetWidth;
+        
 
         public Control SideBarControl;
 
         public MainForm()
         {
             InitializeComponent();
-            
+            AnimationManager.setTimer(animation);   
             splitContainer1.SplitterWidth =1;
 
             currentWidth = Width;
@@ -50,9 +49,12 @@ namespace NicksAutoClicker
             saveFileDialog1.ShowDialog();
         }
 
-        bool SideBarVisible = false;
+        public bool SideBarVisible = false;
+        public float currentWidth;
+        public float targetWidth;
         void ToggleSideBar(bool instant = false, bool? visible = null)
         {
+
             if (visible != null)
             {
                 SideBarVisible = (bool)visible;
@@ -73,53 +75,11 @@ namespace NicksAutoClicker
             {
                 Width = (int)targetWidth;
                 currentWidth = Width;
-            } else
+            } else 
             {
-                ActiveAnimations.Add(ActiveAnimation.SideBarToggle);
-                animation.Start();
+                AnimationManager.ActiveAnimations.Add(new Animations.SideBarToggle(this));
             }
         }
-        enum ActiveAnimation
-        {
-            SideBarToggle
-        }
-        
-
-        IList<ActiveAnimation> ActiveAnimations = new List<ActiveAnimation>();
-        private void animation_Tick(object sender, EventArgs e)
-        {
-            if (ActiveAnimations.Count <= 0)
-            {
-                animation.Stop();
-            }
-            else
-            {
-                for (int i = ActiveAnimations.Count-1; i >= 0; i--)
-                {
-                    switch (ActiveAnimations[i])
-                    {
-                        case ActiveAnimation.SideBarToggle:
-                            if (Math.Round(currentWidth) != Math.Round(targetWidth))
-                            {
-                                currentWidth = Lerp(currentWidth, targetWidth, (1f / (float)animation.Interval) * 3);
-                                Width = (int)Math.Round(currentWidth);
-
-                            }else
-                            {
-                                ActiveAnimations.RemoveAt(i);
-                            }
-                            break;
-                    }
-
-                } 
-            }
-
-        }
-        public static float Lerp(float v1, float v2, float t)
-        {
-            return v1 + ((v2 - v1) * t);
-        }
-
 
         private void button10_Click_1(object sender, EventArgs e)
         {
