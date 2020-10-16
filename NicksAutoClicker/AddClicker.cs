@@ -16,6 +16,7 @@ namespace NicksAutoClicker
         public AddClicker()
         {
             InitializeComponent();
+            ChangeCpsVisibilty(true);
 
             comboAction.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
@@ -35,14 +36,38 @@ namespace NicksAutoClicker
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Condition newCondition = new Condition(Conditions);
+            newCondition.Dock = DockStyle.Top;
+            AddCondition(newCondition);
+        }
+        void AddCondition(Condition newCondition)
+        {
 
-            Condition con = new Condition(Conditions);
-            con.Dock = DockStyle.Top;
-            con.Height = 36;
-            pnlConditions.Controls.Add(con);
-            con.BringToFront();
-
+            pnlTriggersList.Controls.Add(newCondition);
+            newCondition.AddGutter();
+            newCondition.BringToFront();
             UpdateConditionTitles();
+
+        }
+
+        private void btnSwitchToCPS_Click(object sender, EventArgs e)
+        {
+            ChangeCpsVisibilty(true);
+        }
+
+        private void btnSwitchToMS_Click(object sender, EventArgs e)
+        {
+            ChangeCpsVisibilty(false);
+        }
+        void ChangeCpsVisibilty(bool state)
+        {
+            pnlClicksPerSecond.Enabled = state;
+            pnlClicksPerSecond.Visible = state;
+            cpsGutter.Visible = state;
+
+            pnlClickIntervalMS.Enabled = !state;
+            pnlClickIntervalMS.Visible = !state;
+            cpmsGutter.Visible = !state;
         }
     }
 }

@@ -17,10 +17,16 @@ namespace NicksAutoClicker
         KeyboardListener keyboardInput = new KeyboardListener();
         ComboBox ConditionalAction;
 
-
-        public class SerializedCondition
+        Gutter AdjacentGutter;
+        public void AddGutter()
         {
-
+            AdjacentGutter = new Gutter();
+            AdjacentGutter.Height = Conditions.Count > 1 ? 2 : 5;
+            AdjacentGutter.Dock = DockStyle.Top;
+            AdjacentGutter.BackColor = Color.Transparent;
+            AdjacentGutter.Name = "conditionGutter-" + Conditions.Count.ToString();
+            this.Parent.Controls.Add(AdjacentGutter);
+            AdjacentGutter.BringToFront();
         }
         public Condition(List<Condition> conditions)
         {
@@ -28,6 +34,7 @@ namespace NicksAutoClicker
             this.Conditions = conditions;
 
             InitializeComponent();
+
             ConditionalAction = new ComboBox();
             ConditionalAction.Items.AddRange(
                 new string[] { "Left", "Right", "Middle", "Scroll Up", "Scroll Down" });
@@ -60,8 +67,9 @@ namespace NicksAutoClicker
         {
             Conditions.Remove(this);
             ((AddClicker)((MainForm)this.FindForm()).SideBarControl).UpdateConditionTitles();
-
+            this.Parent.Controls.Remove(AdjacentGutter);
             this.Parent.Controls.Remove(this);
+            
         }
 
         private void Condition_Load(object sender, EventArgs e)

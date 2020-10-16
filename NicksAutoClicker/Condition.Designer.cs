@@ -38,14 +38,13 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTitle.Location = new System.Drawing.Point(5, 5);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(5);
-            this.lblTitle.Size = new System.Drawing.Size(52, 26);
+            this.lblTitle.Size = new System.Drawing.Size(68, 24);
             this.lblTitle.TabIndex = 16;
             this.lblTitle.Text = "When";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -58,7 +57,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(456, 5);
+            this.button1.Location = new System.Drawing.Point(439, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 24);
             this.button1.TabIndex = 17;
@@ -77,7 +76,7 @@
             this.comboIndicator.Items.AddRange(new object[] {
             "Key Is Down",
             "Mouse Button Down"});
-            this.comboIndicator.Location = new System.Drawing.Point(57, 5);
+            this.comboIndicator.Location = new System.Drawing.Point(73, 5);
             this.comboIndicator.Name = "comboIndicator";
             this.comboIndicator.Size = new System.Drawing.Size(175, 24);
             this.comboIndicator.TabIndex = 15;
@@ -96,11 +95,10 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Condition";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(517, 34);
+            this.Size = new System.Drawing.Size(500, 34);
             this.Load += new System.EventHandler(this.Condition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

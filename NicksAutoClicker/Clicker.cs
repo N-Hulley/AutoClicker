@@ -17,7 +17,6 @@ namespace NicksAutoClicker
     public class Clicker
     {
         public string Title { get; set; }
-        public List<Condition.SerializedCondition> conditions;
         public ConditionTypes ConditionType { get; set; }
     }
 }

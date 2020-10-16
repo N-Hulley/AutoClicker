@@ -92,7 +92,6 @@
             this.pnlSideBar.Location = new System.Drawing.Point(290, 10);
             this.pnlSideBar.MinimumSize = new System.Drawing.Size(500, 0);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Padding = new System.Windows.Forms.Padding(5);
             this.pnlSideBar.Size = new System.Drawing.Size(500, 405);
             this.pnlSideBar.TabIndex = 2;
             // 
