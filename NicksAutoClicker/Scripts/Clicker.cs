@@ -7,16 +7,10 @@ using System.Xml.Serialization;
 
 namespace NicksAutoClicker
 {
-    public enum ConditionTypes
-    {
-        activeWhileAllConditionsMet,
-        toggleWhenAllConditionsMet,
-        activeWhileAnyConditionMet,
-        toggleWhenAnyConditionMet
-    }
     public class Clicker
     {
         public string Title { get; set; }
-        public ConditionTypes ConditionType { get; set; }
+
+
     }
 }

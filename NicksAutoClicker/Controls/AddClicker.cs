@@ -18,8 +18,11 @@ namespace NicksAutoClicker
             InitializeComponent();
             ChangeCpsVisibilty(true);
 
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.Opaque, true);
+            this.BackColor = Color.Transparent;
             comboAction.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            comboDuration.SelectedIndex = 2;
         }
 
         public void UpdateConditionTitles()
@@ -62,12 +65,49 @@ namespace NicksAutoClicker
         void ChangeCpsVisibilty(bool state)
         {
             pnlClicksPerSecond.Enabled = state;
-            pnlClicksPerSecond.Visible = state;
-            cpsGutter.Visible = state;
-
             pnlClickIntervalMS.Enabled = !state;
+
+            pnlClicksPerSecond.Visible = state;
             pnlClickIntervalMS.Visible = !state;
-            cpmsGutter.Visible = !state;
         }
+        enum DurationOptions
+        {
+            Forever,
+            AmountOfTime,
+            Conditions
+        }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboDuration.SelectedIndex != (int)DurationOptions.AmountOfTime)
+            {
+                pnlDurationTime.Enabled = false;
+                pnlDurationTime.Hide();
+            }
+            if (comboDuration.SelectedIndex != (int)DurationOptions.Conditions)
+            {
+                pnlConditions.Enabled = false;
+                pnlConditions.Hide();
+            }
+
+            switch ((DurationOptions)comboDuration.SelectedIndex)
+            {
+                case DurationOptions.Forever:
+                    break;
+                case DurationOptions.AmountOfTime:
+                    pnlDurationTime.Enabled = true;
+                    pnlDurationTime.Show();
+                    break;
+                case DurationOptions.Conditions:
+                    pnlConditions.Enabled = true;
+                    pnlConditions.Show();
+                    break;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Popup.Show(FindForm(),"Testing");
+        }
+
     }
 }

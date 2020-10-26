@@ -51,75 +51,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddClicker.cs">
+    <Compile Include="Controls\AddClicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddClicker.Designer.cs">
+    <Compile Include="Controls\AddClicker.Designer.cs">
       <DependentUpon>AddClicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Animation.cs" />
+    <Compile Include="Scripts\Animation.cs" />
     <Compile Include="Animations\SideBarToggle.cs" />
     <Compile Include="Animations\UniqueAnimation.cs" />
-    <Compile Include="CatchHotkeySet.cs">
+    <Compile Include="Controls\CatchHotkeySet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CatchHotkeySet.Designer.cs">
+    <Compile Include="Controls\CatchHotkeySet.Designer.cs">
       <DependentUpon>CatchHotkeySet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clicker.cs" />
-    <Compile Include="ClickerManager.cs" />
-    <Compile Include="CompleteKeyCodesList.cs" />
-    <Compile Include="Condition.cs">
+    <Compile Include="Scripts\Clicker.cs" />
+    <Compile Include="Scripts\ClickerManager.cs" />
+    <Compile Include="Scripts\CompleteKeyCodesList.cs" />
+    <Compile Include="Controls\Condition.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Condition.Designer.cs">
+    <Compile Include="Controls\Condition.Designer.cs">
       <DependentUpon>Condition.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gutter.cs">
+    <Compile Include="Controls\TransparentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparentControl.Designer.cs">
+      <DependentUpon>TransparentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparentPanel.Designer.cs">
+      <DependentUpon>TransparentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\WinUtils\Dialogs\InputBox.cs" />
+    <Compile Include="Scripts\WinUtils\Dialogs\PickIconDialog.cs" />
+    <Compile Include="Scripts\WinUtils\Dialogs\TaskDialog.cs" />
+    <Compile Include="Scripts\WinUtils\DPI.cs" />
+    <Compile Include="Scripts\WinUtils\FormUtils.cs" />
+    <Compile Include="Scripts\WinUtils\IconManager.cs" />
+    <Compile Include="Scripts\KeyboardIntercept.cs" />
+    <Compile Include="Controls\KeyboardListener.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gutter.Designer.cs">
-      <DependentUpon>Gutter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KeyboardIntercept.cs" />
-    <Compile Include="KeyboardListener.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="KeyboardListener.Designer.cs">
+    <Compile Include="Controls\KeyboardListener.Designer.cs">
       <DependentUpon>KeyboardListener.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Scripts\WinUtils\LayeredWindowHelper.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TitleBar.cs">
+    <Compile Include="Controls\TitleBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TitleBar.Designer.cs">
+    <Compile Include="Controls\TitleBar.Designer.cs">
       <DependentUpon>TitleBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="AddClicker.resx">
+    <Compile Include="Scripts\WinUtils\ToolStripNonClientRenderer.cs" />
+    <Compile Include="Scripts\Utils.cs" />
+    <Compile Include="Scripts\WinUtils\Win10Style.cs" />
+    <Compile Include="Scripts\WinUtils\Win7Style.cs" />
+    <Compile Include="Scripts\WinUtils\WinAPI.cs" />
+    <Compile Include="Scripts\WinUtils\WinVer.cs" />
+    <EmbeddedResource Include="Controls\AddClicker.resx">
       <DependentUpon>AddClicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CatchHotkeySet.resx">
+    <EmbeddedResource Include="Controls\CatchHotkeySet.resx">
       <DependentUpon>CatchHotkeySet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Condition.resx">
+    <EmbeddedResource Include="Controls\Condition.resx">
       <DependentUpon>Condition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gutter.resx">
-      <DependentUpon>Gutter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KeyboardListener.resx">
+    <EmbeddedResource Include="Controls\KeyboardListener.resx">
       <DependentUpon>KeyboardListener.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,8 +153,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TitleBar.resx">
+    <EmbeddedResource Include="Controls\TitleBar.resx">
       <DependentUpon>TitleBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -145,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

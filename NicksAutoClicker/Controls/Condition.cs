@@ -17,10 +17,10 @@ namespace NicksAutoClicker
         KeyboardListener keyboardInput = new KeyboardListener();
         ComboBox ConditionalAction;
 
-        Gutter AdjacentGutter;
+        TransparentControl AdjacentGutter;
         public void AddGutter()
         {
-            AdjacentGutter = new Gutter();
+            AdjacentGutter = new TransparentControl();
             AdjacentGutter.Height = Conditions.Count > 1 ? 2 : 5;
             AdjacentGutter.Dock = DockStyle.Top;
             AdjacentGutter.BackColor = Color.Transparent;

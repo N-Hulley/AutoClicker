@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinUtils;
 
 namespace NicksAutoClicker
 {
@@ -15,8 +16,8 @@ namespace NicksAutoClicker
     {
 
 
-        const int thinWidth = 290;
-        const int wideWidth = 800;
+        const int thinWidth = 270;
+        const int wideWidth = 775;
 
         
 
@@ -24,9 +25,11 @@ namespace NicksAutoClicker
 
         public MainForm()
         {
+            
+
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
             AnimationManager.setTimer(animation);   
-            splitContainer1.SplitterWidth =1;
 
             currentWidth = Width;
             targetWidth = Width;
@@ -54,7 +57,7 @@ namespace NicksAutoClicker
         public float targetWidth;
         Animation ToggleSideBar(bool instant = false, bool? visible = null)
         {
-
+            
             if (visible != null)
             {
                 SideBarVisible = (bool)visible;
@@ -71,6 +74,10 @@ namespace NicksAutoClicker
             {
                 targetWidth = thinWidth;
             }
+            if (WindowState == FormWindowState.Maximized)
+            {
+                return null;
+            }
             if (instant)
             {
                 Width = (int)targetWidth;
@@ -79,29 +86,16 @@ namespace NicksAutoClicker
             {
                 Animation slideAnimation = new Animations.SideBarToggle(this);
                 AnimationManager.ActiveAnimations.Add(slideAnimation);
+                //DrawingSuspensions.SuspendDrawing(pnlSideBar);
+
                 return slideAnimation;
             }
             return null;
         }
 
-        private void button10_Click_1(object sender, EventArgs e)
-        {
-            button10.Enabled = false;
-            if (SideBarIs(typeof(AddClicker)))
-            {
-                SideBarControl = null;
-            } else
-            {
-                AddClicker addclickerPanel = new AddClicker();
-                addclickerPanel.Dock = DockStyle.Fill;
-                SetSideBar(addclickerPanel);
-            }
-            Animation slidingAnimation = ToggleSideBar();
-            slidingAnimation.AnimationComplete += slidingAnimationComplete;
-
-        }
         void slidingAnimationComplete(object sender, EventArgs e)
         {
+
             if (SideBarIs(typeof(AddClicker)))
             {
                 button10.Text = "CANCEL";
@@ -116,6 +110,9 @@ namespace NicksAutoClicker
 
             }
             button10.Enabled = true;
+            pnlSideBar.ResumeLayout();
+            DrawingSuspensions.ResumeDrawing(pnlSideBar);
+
 
         }
         void SetSideBar(Control c)
@@ -130,6 +127,57 @@ namespace NicksAutoClicker
             return SideBarControl.GetType().Equals(t);
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cParms = base.CreateParams;
+                cParms.Style |= Constants.WS_SYSMENU;
+                cParms.ExStyle |= Constants.WS_EX_LAYERED;
+                return cParms;
+            }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
 
+            (new LayeredWindowHelper(this)).BackColor = Color.FromArgb(200, Color.Black);
+
+            Win7Style.EnableBlurBehindWindow(this.Handle);
+            Win10Style.EnableBlur(this.Handle);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlSideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+
+            button10.Enabled = false;
+            if (SideBarIs(typeof(AddClicker)))
+            {
+                SideBarControl = null;
+            }
+            else
+            {
+                AddClicker addclickerPanel = new AddClicker();
+                addclickerPanel.Dock = DockStyle.Fill;
+                SetSideBar(addclickerPanel);
+            }
+            Animation slidingAnimation = ToggleSideBar();
+            if (slidingAnimation != null)
+            {
+                slidingAnimation.AnimationComplete += slidingAnimationComplete;
+            } else
+            {
+                slidingAnimationComplete(this, null);
+            }
+        }
     }
 }
