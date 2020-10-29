@@ -33,6 +33,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.animation = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSideBar = new NicksAutoClicker.TransparentPanel();
             this.transparentPanel3 = new NicksAutoClicker.TransparentPanel();
             this.transparentPanel2 = new NicksAutoClicker.TransparentPanel();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -42,7 +43,6 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.titleBar1 = new NicksAutoClicker.TitleBar();
-            this.pnlSideBar = new NicksAutoClicker.TransparentPanel();
             this.transparentPanel3.SuspendLayout();
             this.transparentPanel2.SuspendLayout();
             this.transparentPanel1.SuspendLayout();
@@ -63,6 +63,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // pnlSideBar
+            // 
+            this.pnlSideBar.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSideBar.Location = new System.Drawing.Point(270, 31);
+            this.pnlSideBar.MinimumSize = new System.Drawing.Size(500, 0);
+            this.pnlSideBar.Name = "pnlSideBar";
+            this.pnlSideBar.Opacity = 100;
+            this.pnlSideBar.Padding = new System.Windows.Forms.Padding(0, 5, 5, 0);
+            this.pnlSideBar.Size = new System.Drawing.Size(530, 429);
+            this.pnlSideBar.TabIndex = 9;
             // 
             // transparentPanel3
             // 
@@ -191,21 +203,11 @@
             this.titleBar1.MaximizeShown = true;
             this.titleBar1.MinimizeShown = true;
             this.titleBar1.Name = "titleBar1";
+            this.titleBar1.SettingsButtonShown = true;
             this.titleBar1.Size = new System.Drawing.Size(800, 31);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Title = "Nicks AutoClicker";
-            // 
-            // pnlSideBar
-            // 
-            this.pnlSideBar.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSideBar.Location = new System.Drawing.Point(270, 31);
-            this.pnlSideBar.MinimumSize = new System.Drawing.Size(500, 0);
-            this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Opacity = 100;
-            this.pnlSideBar.Padding = new System.Windows.Forms.Padding(0, 5, 5, 0);
-            this.pnlSideBar.Size = new System.Drawing.Size(530, 429);
-            this.pnlSideBar.TabIndex = 9;
+            this.titleBar1.Load += new System.EventHandler(this.titleBar1_Load);
             // 
             // MainForm
             // 

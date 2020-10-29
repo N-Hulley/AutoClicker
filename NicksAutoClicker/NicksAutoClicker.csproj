@@ -57,6 +57,12 @@
     <Compile Include="Controls\AddClicker.Designer.cs">
       <DependentUpon>AddClicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\Animation.cs" />
     <Compile Include="Animations\SideBarToggle.cs" />
     <Compile Include="Animations\UniqueAnimation.cs" />
@@ -87,6 +93,8 @@
     <Compile Include="Controls\TransparentPanel.Designer.cs">
       <DependentUpon>TransparentPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\ThreadHelper.cs" />
+    <Compile Include="Scripts\UserSettings.cs" />
     <Compile Include="Scripts\WinUtils\Dialogs\InputBox.cs" />
     <Compile Include="Scripts\WinUtils\Dialogs\PickIconDialog.cs" />
     <Compile Include="Scripts\WinUtils\Dialogs\TaskDialog.cs" />
@@ -145,6 +153,9 @@
     <EmbeddedResource Include="Forms\Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,6 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\background.jpg" />
+    <None Include="Resources\Icons\settings.png" />
+    <None Include="Resources\settings.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

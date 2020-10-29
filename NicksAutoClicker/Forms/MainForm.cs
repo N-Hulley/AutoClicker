@@ -19,17 +19,17 @@ namespace NicksAutoClicker
         const int thinWidth = 270;
         const int wideWidth = 775;
 
-        
+
 
         public Control SideBarControl;
 
         public MainForm()
         {
-            
+
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
-            AnimationManager.setTimer(animation);   
+            AnimationManager.setTimer(animation);
 
             currentWidth = Width;
             targetWidth = Width;
@@ -57,7 +57,7 @@ namespace NicksAutoClicker
         public float targetWidth;
         Animation ToggleSideBar(bool instant = false, bool? visible = null)
         {
-            
+
             if (visible != null)
             {
                 SideBarVisible = (bool)visible;
@@ -78,19 +78,10 @@ namespace NicksAutoClicker
             {
                 return null;
             }
-            if (instant)
-            {
-                Width = (int)targetWidth;
-                currentWidth = Width;
-            } else 
-            {
-                Animation slideAnimation = new Animations.SideBarToggle(this);
-                AnimationManager.ActiveAnimations.Add(slideAnimation);
-                //DrawingSuspensions.SuspendDrawing(pnlSideBar);
+            Animation slideAnimation = new Animations.SideBarToggle(instant, this);
+            AnimationManager.ActiveAnimations.Add(slideAnimation);
+            return slideAnimation;
 
-                return slideAnimation;
-            }
-            return null;
         }
 
         void slidingAnimationComplete(object sender, EventArgs e)
@@ -155,7 +146,10 @@ namespace NicksAutoClicker
         {
 
         }
+        public void OutsiderChangedWidth(object sender, EventArgs e)
+        {
 
+        }
         private void button10_Click_1(object sender, EventArgs e)
         {
 
@@ -171,13 +165,25 @@ namespace NicksAutoClicker
                 SetSideBar(addclickerPanel);
             }
             Animation slidingAnimation = ToggleSideBar();
-            if (slidingAnimation != null)
-            {
-                slidingAnimation.AnimationComplete += slidingAnimationComplete;
-            } else
-            {
-                slidingAnimationComplete(this, null);
-            }
+            slidingAnimation.AnimationComplete += slidingAnimationComplete;
         }
+
+        private void titleBar1_Load(object sender, EventArgs e)
+        {
+            titleBar1.btnSettings.Click += OpenSettings;
+        }
+        public float GetCurrentWidth()
+        {
+            return currentWidth;
+        }
+        void OpenSettings(object sender, EventArgs e)
+        {
+            Forms.Settings settings = new Forms.Settings();
+            AnimationManager.PauseAnimations();
+            settings.ShowDialog();
+            AnimationManager.PauseAnimations();
+        }
+
+
     }
 }

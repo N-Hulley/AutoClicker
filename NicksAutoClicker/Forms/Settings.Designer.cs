@@ -1,6 +1,6 @@
-﻿namespace NicksAutoClicker
+﻿namespace NicksAutoClicker.Forms
 {
-    partial class Popup
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.titleBar1 = new NicksAutoClicker.TitleBar();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // titleBar1
@@ -41,22 +42,30 @@
             this.titleBar1.MinimizeShown = false;
             this.titleBar1.Name = "titleBar1";
             this.titleBar1.SettingsButtonShown = false;
-            this.titleBar1.Size = new System.Drawing.Size(362, 30);
-            this.titleBar1.TabIndex = 5;
+            this.titleBar1.Size = new System.Drawing.Size(249, 30);
+            this.titleBar1.TabIndex = 6;
             this.titleBar1.Title = "Popup";
             // 
-            // Popup
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(249, 30);
+            this.panel1.TabIndex = 8;
+            // 
+            // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(362, 197);
+            this.ClientSize = new System.Drawing.Size(249, 376);
             this.Controls.Add(this.titleBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Popup";
-            this.Text = "Popup";
-            this.Load += new System.EventHandler(this.Popup_Load);
+            this.Name = "Settings";
+            this.Text = "Settings";
+            this.Load += new System.EventHandler(this.Settings_Load);
             this.ResumeLayout(false);
 
         }
@@ -64,5 +73,6 @@
         #endregion
 
         private TitleBar titleBar1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

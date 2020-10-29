@@ -11,7 +11,7 @@ namespace NicksAutoClicker.Animations
     /// </summary>
     public abstract class UniqueAnimation : Animation
     { 
-        public UniqueAnimation(bool overridePrevious = true) {
+        public UniqueAnimation(bool instantCompletion, bool overridePrevious = true) : base(instantCompletion) {
             for (int i = AnimationManager.ActiveAnimations.Count-1; i >= 0; --i)
             {
                 if (AnimationManager.ActiveAnimations[i].GetType() == this.GetType())

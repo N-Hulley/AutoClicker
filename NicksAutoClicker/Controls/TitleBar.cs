@@ -67,11 +67,26 @@ namespace NicksAutoClicker
                 if (!DesignMode) btnClose.Visible = closeShown;
             }
         }
+
+        protected bool settingsButtonShown = false;
+        [System.ComponentModel.Description("Whether to show the Close button")]
+        [System.ComponentModel.Browsable(true)]
+        [System.ComponentModel.Category("Custom")]
+        public bool SettingsButtonShown
+        {
+            get { return settingsButtonShown; }
+            set
+            {
+                settingsButtonShown = value;
+                if (!DesignMode) btnSettings.Visible = settingsButtonShown;
+            }
+        }
         void setCustomProperties() {
             lblTitle.Text = Title;
             btnMinimize.Visible = minimizeShown;
             btnMaximize.Visible = maximizeShown;
             btnClose.Visible = closeShown;
+            btnSettings.Visible = settingsButtonShown;
         }
 
         public TitleBar()
@@ -127,6 +142,10 @@ namespace NicksAutoClicker
         private void TitleBar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }

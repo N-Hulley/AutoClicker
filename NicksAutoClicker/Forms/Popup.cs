@@ -7,24 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinUtils;
 
 namespace NicksAutoClicker
 {
     public partial class Popup : Form
     {
         public event EventHandler PopupClosed;
+        Form Parent;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cParms = base.CreateParams;
+                cParms.Style |= Constants.WS_SYSMENU;
+                cParms.ExStyle |= Constants.WS_EX_LAYERED;
+                return cParms;
+            }
+        }
 
         public static Popup Show(Form parent, string title)
         {
-            Popup popup = new Popup();
-            popup.titleBar1.Title = title;
-            popup.ShowDialog();
-            popup.Location = new Point(
-                (parent.Location.X + parent.Width / 2) - popup.Width/2,
-                (parent.Location.Y + parent.Height / 2) - popup.Height / 2
-            );
-            
+            Popup popup = new Popup(parent,title);
             return popup;
         }
         public void CancelPopup()
@@ -37,13 +42,27 @@ namespace NicksAutoClicker
         {
             PopupClosed.Invoke(this, args);
         }
-        public Popup()
+        public Popup(Form parent, string title)
         {
+            Parent = parent;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+
+            titleBar1.Title = title;
+            Location = new Point(
+                (parent.Location.X + parent.Width / 2) - Width / 2,
+                (parent.Location.Y + parent.Height / 2) - Height / 2
+            );
+
             InitializeComponent();
+
         }
 
-        private void titleBar1_Load_1(object sender, EventArgs e)
+
+        private void Popup_Load(object sender, EventArgs e)
         {
+            (new LayeredWindowHelper(this)).BackColor = Color.FromArgb(200, Color.Black);
+            Win7Style.EnableBlurBehindWindow(this.Handle);
+            Win10Style.EnableBlur(this.Handle);
 
         }
     }

@@ -14,9 +14,12 @@ namespace NicksAutoClicker
     {
         public TransparentPanel()
         {
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            if (!DesignMode)
+            { 
+                SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.Opaque, true);
             this.BackColor = Color.Transparent;
+        }
             InitializeComponent();
         }
 

@@ -106,7 +106,7 @@ namespace NicksAutoClicker
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Popup.Show(FindForm(),"Testing");
+            Popup.Show(FindForm(),"Testing").ShowDialog();
         }
 
     }

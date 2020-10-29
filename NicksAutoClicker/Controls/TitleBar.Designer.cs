@@ -34,19 +34,25 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.MinimumSize = new System.Drawing.Size(0, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(150, 30);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblTitle.Size = new System.Drawing.Size(111, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Nicsk Control Lib";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.title_MouseDown);
             this.lblTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.title_MouseMove);
             this.lblTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.title_MouseUp);
@@ -110,9 +116,33 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.AutoSize = true;
+            this.btnSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.BackgroundImage = global::NicksAutoClicker.Properties.Resources.settings1;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Leelawadee", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSettings.Location = new System.Drawing.Point(569, 0);
+            this.btnSettings.MinimumSize = new System.Drawing.Size(30, 0);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(2);
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
+            this.btnSettings.TabIndex = 10;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // TitleBar
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnMaximize);
             this.Controls.Add(this.btnClose);
@@ -129,10 +159,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.Button btnMinimize;
+        public System.Windows.Forms.Button btnClose;
+        public System.Windows.Forms.Button btnMaximize;
+        public System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        protected System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Button btnSettings;
     }
 }
