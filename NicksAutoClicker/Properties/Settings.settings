@@ -5,8 +5,8 @@
     <Setting Name="InstantAnimations" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AnimationInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">16</Value>
+    <Setting Name="AnimationInterval" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">33.3333</Value>
     </Setting>
     <Setting Name="GlassBackground" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

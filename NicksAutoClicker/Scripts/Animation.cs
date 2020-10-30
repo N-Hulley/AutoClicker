@@ -60,7 +60,7 @@ namespace NicksAutoClicker
         {
             InstantCompletion = instantCompletion;
             if (!InstantCompletion && !UserSettings.InstantAnimation) { 
-                t = new BetterTimer(f, Step, UserSettings.AnimationInterval);
+                t = new BetterTimer(f, Step, (int)UserSettings.AnimationInterval);
             }
         }
         public void Cancel(bool autoFinish = false)
@@ -113,7 +113,7 @@ namespace NicksAutoClicker
 
         public void Resume(Form f)
         {
-            t = new BetterTimer(f, Step, UserSettings.AnimationInterval);
+            t = new BetterTimer(f, Step, (int)UserSettings.AnimationInterval);
         }
     }
 }

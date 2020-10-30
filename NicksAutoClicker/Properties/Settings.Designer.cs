@@ -37,10 +37,10 @@ namespace NicksAutoClicker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("16")]
-        public int AnimationInterval {
+        [global::System.Configuration.DefaultSettingValueAttribute("33.3333")]
+        public float AnimationInterval {
             get {
-                return ((int)(this["AnimationInterval"]));
+                return ((float)(this["AnimationInterval"]));
             }
             set {
                 this["AnimationInterval"] = value;

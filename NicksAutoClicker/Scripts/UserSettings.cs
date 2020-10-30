@@ -15,7 +15,7 @@ namespace NicksAutoClicker
             set { NicksAutoClicker.Properties.Settings.Default.InstantAnimations = value; }
         }
 
-        public static int AnimationInterval
+        public static float AnimationInterval
         {
             get { return NicksAutoClicker.Properties.Settings.Default.AnimationInterval; }
             set { NicksAutoClicker.Properties.Settings.Default.AnimationInterval = value; }

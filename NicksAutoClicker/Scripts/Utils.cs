@@ -31,6 +31,15 @@ namespace NicksAutoClicker
     }
     public static class Utils
     {
+        public enum PopupClosedMethod
+        {
+            Canceled,
+            Completed
+        };
+        public class PopupClosedEventArgs : EventArgs
+        {
+            public PopupClosedMethod method;
+        }
         public static Point CenterForm(Form Parent, Form Child)
         {
             return new Point(
@@ -48,7 +57,7 @@ namespace NicksAutoClicker
             {
                 LayeredWindowHelper helper;
                 helper = new LayeredWindowHelper(form);
-                (helper).BackColor = Color.FromArgb(200, Color.Black);
+                (helper).BackColor = Color.FromArgb(120, Color.Black);
                 Win7Style.EnableBlurBehindWindow(form.Handle);
                 Win10Style.EnableBlur(form.Handle);
             }

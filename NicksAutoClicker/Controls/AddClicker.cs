@@ -107,7 +107,7 @@ namespace NicksAutoClicker
         private void button4_Click(object sender, EventArgs e)
         {
             AnimationManager.PauseAnimations();
-            Popup popup = Popup.Show((MainForm)FindForm(), "Testing");
+            Popup popup = Popup.Show((MainForm)FindForm(), "Save New Clicker", "Are you happy with this configuration");
             popup.StartPosition = FormStartPosition.CenterParent;
             popup.ShowDialog();
             AnimationManager.ContinueAnimations(FindForm());

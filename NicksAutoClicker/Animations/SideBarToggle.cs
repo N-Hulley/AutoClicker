@@ -39,7 +39,6 @@ namespace NicksAutoClicker.Animations
 
     protected override void Update()
         {
-            ((MainForm)Form).titleBar1.lblTitle.Text = DeltaTime.ToString();
             //if (Form.Width < Form.targetWidth) Form.Width+=5; else Form.Width-=5;
             Form.Width = (int)Utils.Lerp(Form.Width, Form.targetWidth, (1f / UserSettings.AnimationInterval) * 5);
         }

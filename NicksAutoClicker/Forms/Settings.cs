@@ -39,26 +39,29 @@ namespace NicksAutoClicker.Forms
         {
             Utils.ApplyLayeredWindowHelp(this, DesignMode);
             chkEnableAnims.Checked = !UserSettings.InstantAnimation;
-            trackBar1.Value = 1000 / UserSettings.AnimationInterval;
+            numAnimationFPS.Value = (int)(1000f / UserSettings.AnimationInterval);
             checkBox1.Checked = UserSettings.GlassBackground;
         }
 
         private void chkEnableAnims_CheckedChanged(object sender, EventArgs e)
         {
-            UserSettings.InstantAnimation = !chkEnableAnims.Checked;
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+
+        private void numAnimationFPS_ValueChanged(object sender, EventArgs e)
         {
-            UserSettings.AnimationInterval = 1000 / trackBar1.Value;
+            UserSettings.AnimationInterval = 1000 / (int)numAnimationFPS.Value;
+        }
+
+        private void chkEnableAnims_CheckedChanged_1(object sender, EventArgs e)
+        {
+            UserSettings.InstantAnimation = !chkEnableAnims.Checked;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             UserSettings.GlassBackground = checkBox1.Checked;
-            this.Invalidate();
-            Main.Invalidate();
         }
 
         private void transparentPanel1_Paint(object sender, PaintEventArgs e)
