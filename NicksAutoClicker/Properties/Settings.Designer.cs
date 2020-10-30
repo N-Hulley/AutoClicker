@@ -25,13 +25,37 @@ namespace NicksAutoClicker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool InstantAnimations {
             get {
                 return ((bool)(this["InstantAnimations"]));
             }
             set {
                 this["InstantAnimations"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        public int AnimationInterval {
+            get {
+                return ((int)(this["AnimationInterval"]));
+            }
+            set {
+                this["AnimationInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GlassBackground {
+            get {
+                return ((bool)(this["GlassBackground"]));
+            }
+            set {
+                this["GlassBackground"] = value;
             }
         }
     }

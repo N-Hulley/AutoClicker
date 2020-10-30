@@ -14,22 +14,23 @@ namespace NicksAutoClicker
     public partial class Popup : Form
     {
         public event EventHandler PopupClosed;
-        Form Parent;
-
+        MainForm Main;
         protected override CreateParams CreateParams
         {
+            
             get
             {
                 CreateParams cParms = base.CreateParams;
                 cParms.Style |= Constants.WS_SYSMENU;
                 cParms.ExStyle |= Constants.WS_EX_LAYERED;
-                return cParms;
+                return DesignMode ? null : cParms;
             }
         }
 
-        public static Popup Show(Form parent, string title)
+        public static Popup Show(MainForm main, string title)
         {
-            Popup popup = new Popup(parent,title);
+            Popup popup = new Popup(main);
+            popup.titleBar1.Title = title;
             return popup;
         }
         public void CancelPopup()
@@ -42,27 +43,20 @@ namespace NicksAutoClicker
         {
             PopupClosed.Invoke(this, args);
         }
-        public Popup(Form parent, string title)
+        public Popup(MainForm main)
         {
-            Parent = parent;
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-            titleBar1.Title = title;
-            Location = new Point(
-                (parent.Location.X + parent.Width / 2) - Width / 2,
-                (parent.Location.Y + parent.Height / 2) - Height / 2
-            );
-
             InitializeComponent();
+            Main = main;
+            Utils.CenterForm(main, this);
 
         }
 
 
         private void Popup_Load(object sender, EventArgs e)
         {
-            (new LayeredWindowHelper(this)).BackColor = Color.FromArgb(200, Color.Black);
-            Win7Style.EnableBlurBehindWindow(this.Handle);
-            Win10Style.EnableBlur(this.Handle);
+            Utils.ApplyLayeredWindowHelp(this, DesignMode);
 
         }
     }

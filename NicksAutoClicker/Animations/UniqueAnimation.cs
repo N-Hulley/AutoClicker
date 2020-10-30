@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NicksAutoClicker.Animations
 {
@@ -11,7 +12,7 @@ namespace NicksAutoClicker.Animations
     /// </summary>
     public abstract class UniqueAnimation : Animation
     { 
-        public UniqueAnimation(bool instantCompletion, bool overridePrevious = true) : base(instantCompletion) {
+        public UniqueAnimation(Form f,bool instantCompletion, bool overridePrevious = true) : base(f,instantCompletion) {
             for (int i = AnimationManager.ActiveAnimations.Count-1; i >= 0; --i)
             {
                 if (AnimationManager.ActiveAnimations[i].GetType() == this.GetType())

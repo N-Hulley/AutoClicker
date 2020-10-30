@@ -106,7 +106,11 @@ namespace NicksAutoClicker
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Popup.Show(FindForm(),"Testing").ShowDialog();
+            AnimationManager.PauseAnimations();
+            Popup popup = Popup.Show((MainForm)FindForm(), "Testing");
+            popup.StartPosition = FormStartPosition.CenterParent;
+            popup.ShowDialog();
+            AnimationManager.ContinueAnimations(FindForm());
         }
 
     }

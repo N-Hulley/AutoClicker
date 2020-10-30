@@ -31,6 +31,7 @@ namespace WinUtils
             if (m_bIsRefreshing)
                 return;
 
+
             int width = host.ClientRectangle.Width;
             int height = host.ClientRectangle.Height;
 

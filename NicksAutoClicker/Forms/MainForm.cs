@@ -25,16 +25,13 @@ namespace NicksAutoClicker
 
         public MainForm()
         {
+            if (!DesignMode) SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
-            AnimationManager.setTimer(animation);
 
+            Width = thinWidth;
             currentWidth = Width;
             targetWidth = Width;
-
-            ToggleSideBar(true, false);
 
             if (ClickerManager.Clickers.Count <= 0)
             {
@@ -57,7 +54,6 @@ namespace NicksAutoClicker
         public float targetWidth;
         Animation ToggleSideBar(bool instant = false, bool? visible = null)
         {
-
             if (visible != null)
             {
                 SideBarVisible = (bool)visible;
@@ -79,7 +75,10 @@ namespace NicksAutoClicker
                 return null;
             }
             Animation slideAnimation = new Animations.SideBarToggle(instant, this);
-            AnimationManager.ActiveAnimations.Add(slideAnimation);
+            if (!slideAnimation.Completed)
+            {
+                AnimationManager.ActiveAnimations.Add(slideAnimation);
+            }
             return slideAnimation;
 
         }
@@ -101,8 +100,10 @@ namespace NicksAutoClicker
 
             }
             button10.Enabled = true;
-            pnlSideBar.ResumeLayout();
-            DrawingSuspensions.ResumeDrawing(pnlSideBar);
+            //pnlSideBar.ResumeLayout();
+            //DrawingSuspensions.ResumeDrawing(pnlSideBar);
+            //titleBar1.ResumeLayout();
+            //DrawingSuspensions.ResumeDrawing(titleBar1);
 
 
         }
@@ -125,33 +126,19 @@ namespace NicksAutoClicker
                 CreateParams cParms = base.CreateParams;
                 cParms.Style |= Constants.WS_SYSMENU;
                 cParms.ExStyle |= Constants.WS_EX_LAYERED;
-                return cParms;
+                return DesignMode? null : cParms;
             }
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-            (new LayeredWindowHelper(this)).BackColor = Color.FromArgb(200, Color.Black);
-
-            Win7Style.EnableBlurBehindWindow(this.Handle);
-            Win10Style.EnableBlur(this.Handle);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlSideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        public void OutsiderChangedWidth(object sender, EventArgs e)
-        {
-
+            Utils.ApplyLayeredWindowHelp(this, DesignMode);
         }
         private void button10_Click_1(object sender, EventArgs e)
         {
+            //pnlSideBar.SuspendLayout();
+            //DrawingSuspensions.SuspendDrawing(pnlSideBar);
+            //titleBar1.SuspendLayout();
+            //DrawingSuspensions.SuspendDrawing(titleBar1);
 
             button10.Enabled = false;
             if (SideBarIs(typeof(AddClicker)))
@@ -165,21 +152,24 @@ namespace NicksAutoClicker
                 SetSideBar(addclickerPanel);
             }
             Animation slidingAnimation = ToggleSideBar();
-            slidingAnimation.AnimationComplete += slidingAnimationComplete;
+            if (slidingAnimation.Completed)
+            {
+                slidingAnimationComplete(null, null);
+            } else
+            {
+                slidingAnimation.AnimationComplete += slidingAnimationComplete;
+            }
         }
 
         private void titleBar1_Load(object sender, EventArgs e)
         {
             titleBar1.btnSettings.Click += OpenSettings;
         }
-        public float GetCurrentWidth()
-        {
-            return currentWidth;
-        }
         void OpenSettings(object sender, EventArgs e)
         {
-            Forms.Settings settings = new Forms.Settings();
+            Forms.Settings settings = new Forms.Settings(this);
             AnimationManager.PauseAnimations();
+            settings.StartPosition = FormStartPosition.CenterParent;
             settings.ShowDialog();
             AnimationManager.PauseAnimations();
         }

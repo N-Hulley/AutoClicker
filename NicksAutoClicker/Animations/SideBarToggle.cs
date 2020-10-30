@@ -9,27 +9,39 @@ namespace NicksAutoClicker.Animations
     class SideBarToggle : UniqueAnimation
     {
         MainForm Form;
-        public SideBarToggle(bool instantCompletion, MainForm form) : base(instantCompletion)
+        public SideBarToggle(bool instantCompletion, MainForm form) : base(form,instantCompletion)
         {
             this.Form = form;
+            if (t == null)
+            {
+                InstantComplete();
+            }
         }
 
         public override void InstantComplete()
         {
             Form.currentWidth = Form.targetWidth;
+            Form.Width = (int)Form.currentWidth;
+            Completed = true;
+            AnimationManager.ActiveAnimations.Remove(this);
         }
 
         protected override bool CheckCompleted()
         {
-            return Math.Round(Form.currentWidth) == Math.Round(Form.targetWidth);
+            if (Math.Abs(Form.Width - Form.targetWidth) <= 5)
+            {
+                InstantComplete();
+                return true;
+            }
+            return false;
         }
 
-        protected override void Update()
+
+    protected override void Update()
         {
-            Form.PerformSafely(()=>Form.Width = 
-                (int)Utils.Lerp(Form.currentWidth, Form.targetWidth,
-                (1f / (float).17) * 3)
-                );
+            ((MainForm)Form).titleBar1.lblTitle.Text = DeltaTime.ToString();
+            //if (Form.Width < Form.targetWidth) Form.Width+=5; else Form.Width-=5;
+            Form.Width = (int)Utils.Lerp(Form.Width, Form.targetWidth, (1f / UserSettings.AnimationInterval) * 5);
         }
     }
 }

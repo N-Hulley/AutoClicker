@@ -668,7 +668,7 @@
             // 
             // divider5
             // 
-            this.divider5.BackColor = System.Drawing.Color.Transparent;
+            this.divider5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.divider5.Dock = System.Windows.Forms.DockStyle.Top;
             this.divider5.Location = new System.Drawing.Point(0, 242);
             this.divider5.MaximumSize = new System.Drawing.Size(0, 5);
@@ -681,7 +681,7 @@
             // 
             // divider4
             // 
-            this.divider4.BackColor = System.Drawing.Color.Transparent;
+            this.divider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.divider4.Dock = System.Windows.Forms.DockStyle.Top;
             this.divider4.Location = new System.Drawing.Point(0, 199);
             this.divider4.MaximumSize = new System.Drawing.Size(0, 5);
@@ -694,7 +694,7 @@
             // 
             // divider3
             // 
-            this.divider3.BackColor = System.Drawing.Color.Transparent;
+            this.divider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.divider3.Dock = System.Windows.Forms.DockStyle.Top;
             this.divider3.Location = new System.Drawing.Point(0, 122);
             this.divider3.MaximumSize = new System.Drawing.Size(0, 5);
@@ -707,7 +707,7 @@
             // 
             // divider2
             // 
-            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.divider2.Dock = System.Windows.Forms.DockStyle.Top;
             this.divider2.Location = new System.Drawing.Point(0, 79);
             this.divider2.MaximumSize = new System.Drawing.Size(0, 5);
@@ -720,7 +720,7 @@
             // 
             // divider1
             // 
-            this.divider1.BackColor = System.Drawing.Color.Transparent;
+            this.divider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.divider1.Dock = System.Windows.Forms.DockStyle.Top;
             this.divider1.Location = new System.Drawing.Point(0, 36);
             this.divider1.MaximumSize = new System.Drawing.Size(0, 5);
@@ -736,7 +736,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.Controls.Add(this.pnlConditions);
             this.Controls.Add(this.pnlDurationTime);
             this.Controls.Add(this.divider5);
