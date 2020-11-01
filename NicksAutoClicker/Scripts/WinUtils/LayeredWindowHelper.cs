@@ -79,10 +79,13 @@ namespace WinUtils
 
                 foreach (Control ctrl in host.Controls)
                 {
-                    Bitmap bmp = new Bitmap(ctrl.Width, ctrl.Height);
-                    Rectangle rect = new Rectangle(0, 0, ctrl.Width, ctrl.Height);
-                    ctrl.DrawToBitmap(bmp, rect);
-                    graphic.DrawImage(bmp, ctrl.Location);
+                    if (ctrl != null && ctrl.Visible && ctrl.Height > 0 && ctrl.Width > 0)
+                    {
+                        Bitmap bmp = new Bitmap(ctrl.Width, ctrl.Height);
+                        Rectangle rect = new Rectangle(0, 0, ctrl.Width, ctrl.Height);
+                        ctrl.DrawToBitmap(bmp, rect);
+                        graphic.DrawImage(bmp, ctrl.Location);
+                    }
                 }
 
 

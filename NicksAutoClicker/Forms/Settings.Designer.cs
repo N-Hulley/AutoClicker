@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleBar1 = new NicksAutoClicker.TitleBar();
             this.transparentPanel1 = new NicksAutoClicker.TransparentPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.numAnimationFPS = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.transparentControl3 = new NicksAutoClicker.TransparentControl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chkEnableAnims = new System.Windows.Forms.CheckBox();
+            this.transparentControl2 = new NicksAutoClicker.TransparentControl();
             this.transparentControl1 = new NicksAutoClicker.TransparentControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.chkEnableAnims = new System.Windows.Forms.CheckBox();
-            this.numAnimationFPS = new System.Windows.Forms.NumericUpDown();
-            this.transparentControl2 = new NicksAutoClicker.TransparentControl();
-            this.transparentControl3 = new NicksAutoClicker.TransparentControl();
             this.transparentPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAnimationFPS)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,6 +90,104 @@
             this.transparentPanel1.TabIndex = 7;
             this.transparentPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.transparentPanel1_Paint);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.numAnimationFPS);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(5, 75);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(239, 30);
+            this.panel3.TabIndex = 13;
+            // 
+            // numAnimationFPS
+            // 
+            this.numAnimationFPS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numAnimationFPS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numAnimationFPS.Location = new System.Drawing.Point(165, 4);
+            this.numAnimationFPS.Maximum = new decimal(new int[] {
+            250,
+            0,
+            0,
+            0});
+            this.numAnimationFPS.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numAnimationFPS.Name = "numAnimationFPS";
+            this.numAnimationFPS.Size = new System.Drawing.Size(67, 20);
+            this.numAnimationFPS.TabIndex = 1;
+            this.numAnimationFPS.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.numAnimationFPS.ValueChanged += new System.EventHandler(this.numAnimationFPS_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(131, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Animation Speed (FPS)";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // transparentControl3
+            // 
+            this.transparentControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.transparentControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.transparentControl3.Location = new System.Drawing.Point(5, 70);
+            this.transparentControl3.Name = "transparentControl3";
+            this.transparentControl3.Opacity = 50;
+            this.transparentControl3.Size = new System.Drawing.Size(239, 5);
+            this.transparentControl3.TabIndex = 16;
+            this.transparentControl3.Text = "transparentControl3";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.chkEnableAnims);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.Location = new System.Drawing.Point(5, 40);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(239, 30);
+            this.panel2.TabIndex = 12;
+            // 
+            // chkEnableAnims
+            // 
+            this.chkEnableAnims.AutoSize = true;
+            this.chkEnableAnims.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkEnableAnims.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chkEnableAnims.Location = new System.Drawing.Point(0, 0);
+            this.chkEnableAnims.Name = "chkEnableAnims";
+            this.chkEnableAnims.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.chkEnableAnims.Size = new System.Drawing.Size(239, 30);
+            this.chkEnableAnims.TabIndex = 0;
+            this.chkEnableAnims.Text = "Enable Animations";
+            this.chkEnableAnims.UseVisualStyleBackColor = true;
+            this.chkEnableAnims.CheckedChanged += new System.EventHandler(this.chkEnableAnims_CheckedChanged_1);
+            // 
+            // transparentControl2
+            // 
+            this.transparentControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.transparentControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.transparentControl2.Location = new System.Drawing.Point(5, 35);
+            this.transparentControl2.Name = "transparentControl2";
+            this.transparentControl2.Opacity = 50;
+            this.transparentControl2.Size = new System.Drawing.Size(239, 5);
+            this.transparentControl2.TabIndex = 15;
+            this.transparentControl2.Text = "transparentControl2";
+            // 
             // transparentControl1
             // 
             this.transparentControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
@@ -123,104 +222,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Controls.Add(this.numAnimationFPS);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(5, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(239, 30);
-            this.panel3.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(131, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Animation Speed (FPS)";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.chkEnableAnims);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Location = new System.Drawing.Point(5, 40);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(239, 30);
-            this.panel2.TabIndex = 12;
-            // 
-            // chkEnableAnims
-            // 
-            this.chkEnableAnims.AutoSize = true;
-            this.chkEnableAnims.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkEnableAnims.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.chkEnableAnims.Location = new System.Drawing.Point(0, 0);
-            this.chkEnableAnims.Name = "chkEnableAnims";
-            this.chkEnableAnims.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.chkEnableAnims.Size = new System.Drawing.Size(239, 30);
-            this.chkEnableAnims.TabIndex = 0;
-            this.chkEnableAnims.Text = "Enable Animations";
-            this.chkEnableAnims.UseVisualStyleBackColor = true;
-            this.chkEnableAnims.CheckedChanged += new System.EventHandler(this.chkEnableAnims_CheckedChanged_1);
-            // 
-            // numAnimationFPS
-            // 
-            this.numAnimationFPS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numAnimationFPS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numAnimationFPS.Location = new System.Drawing.Point(165, 4);
-            this.numAnimationFPS.Maximum = new decimal(new int[] {
-            250,
-            0,
-            0,
-            0});
-            this.numAnimationFPS.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numAnimationFPS.Name = "numAnimationFPS";
-            this.numAnimationFPS.Size = new System.Drawing.Size(67, 20);
-            this.numAnimationFPS.TabIndex = 1;
-            this.numAnimationFPS.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.numAnimationFPS.ValueChanged += new System.EventHandler(this.numAnimationFPS_ValueChanged);
-            // 
-            // transparentControl2
-            // 
-            this.transparentControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.transparentControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.transparentControl2.Location = new System.Drawing.Point(5, 35);
-            this.transparentControl2.Name = "transparentControl2";
-            this.transparentControl2.Opacity = 50;
-            this.transparentControl2.Size = new System.Drawing.Size(239, 5);
-            this.transparentControl2.TabIndex = 15;
-            this.transparentControl2.Text = "transparentControl2";
-            // 
-            // transparentControl3
-            // 
-            this.transparentControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.transparentControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.transparentControl3.Location = new System.Drawing.Point(5, 70);
-            this.transparentControl3.Name = "transparentControl3";
-            this.transparentControl3.Opacity = 50;
-            this.transparentControl3.Size = new System.Drawing.Size(239, 5);
-            this.transparentControl3.TabIndex = 16;
-            this.transparentControl3.Text = "transparentControl3";
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,16 +231,17 @@
             this.Controls.Add(this.transparentPanel1);
             this.Controls.Add(this.titleBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
             this.transparentPanel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numAnimationFPS)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAnimationFPS)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }

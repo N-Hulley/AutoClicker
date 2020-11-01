@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Popup));
             this.transparentPanel2 = new NicksAutoClicker.TransparentPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -168,6 +169,7 @@
             this.Controls.Add(this.transparentPanel1);
             this.Controls.Add(this.titleBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Popup";
             this.Text = "Popup";
             this.Load += new System.EventHandler(this.Popup_Load);
